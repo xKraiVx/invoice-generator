@@ -2,8 +2,8 @@ import {
   ERROR,
   GREY,
   SECONDARY,
-} from "@/providers/blog-theme-provider/constants/palette";
-import { colors, Theme } from "@mui/material";
+} from "@/providers/custom-theme-provider/constants/palette";
+import { Theme } from "@mui/material";
 
 export const TextField: Theme["components"] = {
   MuiFilledInput: {

@@ -4,6 +4,8 @@ import { getGlobalStyles } from "@/providers/custom-theme-provider/utils/getGlob
 import { CssBaseline, GlobalStyles } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { PropsWithChildren } from "react";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
+
 interface Props extends PropsWithChildren {
   options: {
     key: string;
@@ -11,12 +13,14 @@ interface Props extends PropsWithChildren {
   };
 }
 
-export default function customThemeProvider({ children }: Props) {
+export default function CustomThemeProvider({ children, options }: Props) {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles styles={getGlobalStyles(SECONDARY.main)} />
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
+    <AppRouterCacheProvider options={{ ...options, enableCssLayer: true }}>
+      <ThemeProvider theme={theme}>
+        <GlobalStyles styles={getGlobalStyles(SECONDARY.main)} />
+        <CssBaseline />
+        {children}
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }

@@ -1,4 +1,4 @@
-import { SECONDARY } from "@/providers/blog-theme-provider/constants/palette";
+import { SECONDARY } from "@/providers/custom-theme-provider/constants/palette";
 import { Theme } from "@mui/material";
 
 export const Select: Theme["components"] = {
